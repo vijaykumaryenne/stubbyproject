@@ -4,9 +4,13 @@
     "description": "Demo Bots",
     "main": "index.js",
     "scripts": {
+        "start": "node index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "repository": {},
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/vijaykumaryenne/stubbyproject"
+    },
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.15.0",
