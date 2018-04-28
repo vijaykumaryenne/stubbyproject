@@ -141,7 +141,13 @@ module.exports = {
                  if (err) console.log('error: ' + err)
                  console.log(url);
               
-         
+                 //var url ="https://documents-gse00013596.documents.us2.oraclecloud.com/documents/link/LD6AB601E794EECF78EF446B2770F05748E1E8D22F9C/file/D9577E6C4AF885D0E68D5DCC2770F05748E1E8D22F9C/_OCW_Banner.jpg";
+                 var imageUrlView = "<a href='https://ibb.co/juR9UH'><img src='https://preview.ibb.co/cacG9H/OCW_Banner.jpg' alt='OCW_Banner' border='0'></a>";
+                 var header = "<!DOCTYPE html/><html><head><title>node-qrcode</title></head><body><p>Hi "+userName + ",<br> <br>";
+                 var address = "<span style='font-size:10.0pt; line-height:107%;font-family:'Verdana',sans-serif;color:#666666;mso-fareast-language: EN-AU' lang='EN-AU'><br> Oracle Australia | 4 Julius Avenue, North Ryde | Sydney NSW     2113</span>";
+                 var freeTrial = "<span lang='EN-AU'> <a href='https://cloud.oracle.com/en_US/tryit'><span  style='font-size:10.0pt;line-height:107%;font-family:'Verdana',sans-serif;color:black' lang='EN-US'>Get FREE Cloud Credits and  try Oracle IaaS and PaaS</span></a></span>";
+                 var footer = "<br><b> Regards,</b> <br> <b> <span style='color:red'>Oracle Team </span></b><br>"+address+"<br>" + freeTrial+"<br> <br>" +imageUrlView+"</body></html>";
+               
              // Message object
              let message1 = {
                  // Comma separated list of recipients
@@ -152,7 +158,7 @@ module.exports = {
                
          
                  // HTML body
-                 html    : "<!DOCTYPE html/><html><head><title>node-qrcode</title></head><body><p>Hi "+userName+", <br><br>Please collect your Stubbie Holder from the Chatbot Gift Desk next to the Digital Social Wall which is located at the far end of the Innovation Showcase. You will need to scan this QR Code to receive this gift </p><img src ='"+url + "'</img> <br> Regards, <br> Oracle Team</body></html>", // html body
+                 html    : header + "Please collect your Stubbie Holder from the Chatbot Gift Desk next to the Digital Social Wall which is located at the far end of the Innovation Showcase. You will need to scan this QR Code to receive this gift </p><img src ='"+url + "'</img>" +footer, // html body
                  // An array of attachments
                  attachments: [
                      // String attachment
@@ -172,7 +178,7 @@ module.exports = {
                      return process.exit(1);
                  }
          
-                 console.log('Message sent successfully!');
+                 console.log('Message sent successfully to!'+email);
                  console.log(nodemailer.getTestMessageUrl(info));
                  console.log("Email for receipt Id :"+receiptId);
                  conversation.reply("We have placed your order. Your Order # is "+receiptId);
